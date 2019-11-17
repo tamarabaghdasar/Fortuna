@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="inbet.cc">
+    <link rel="stylesheet" href="css/sheet.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/purl.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/processing-1.4.1.min.js"></script>
+    <title>bone for tuna</title>
+</head>
+<body>
+<div id="preload-frame">
+    <div id="pLogo" class="stripe"></div>
+    <div id="pClock" class="stripe"></div>
+    <div id="pText" class="stripe translate loading">загрузка&hellip;</div>
+</div>
+<div id="sync-wait">
+    <div id="sync-cap">
+        <img style="margin-bottom:10px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABgFBMVEUg3AEg3AEg3AEg3gEh3wEj7AIg3QEj7AIj7AIg3QEi6gEj7AIj7AIj7AIg3QEj7AIh4QEi5wEj7AIj7AIj7AIj7AIj7AIj7AIj7AIj7AIj7AIj7AIi5QEh4gEj7AIi6AEj7AIh4AEj7AIj7AIj7AIj7AIj7AIh3wEh4AEj7AIj7AIj7AIj7AIj7AIj7AIj7AIj7AIi6QEi5gEj7AIi6gEj7AIi6gEj7AIh3gEj7AIj7AIj7AIi6wEj7AIj7AIj7AIj7AIh3gEj7AIj7AIh4wEj7AIj7AIj7AIh5QEj7AIg3QEj7AIj7AIj7AIj7AIj7AIj7AIi6AEj7AIh4QEj7AIi5gEj7AIj7AIj7AIj7AIg3gEi6AEi5wEh4AEj7AIj7AIj7AIj7AIj7AIh4QEj7AIj7AIj7AIj7AIj7AIj7AIj7AIj7AIh3gEh4wEj7AIj7AIh4gEj7AIj7AIj7AIj7AIi6AEAAAAg3QEg3gEi5gEi6wEi5QEi6QEh4QEg3QEj7AKGCKryAAAAd3RSTlP++/7v4Qj0BAvzpXNtePGM1LJcWxtlepKBWC9Zu85NrSbcO0NheWzj2UYUiZgucQN7rLlKpx6mTuhUdzihalYrTOuAXcYPUiTAUfI5kAZAUBOxLdaOuHQWQTLsrrXenmeZhzHXXm4REBmFLGbpyFV/0B9yAWOwABv4oFcAAAFwSURBVHjafZPVbsNAEEVTlZmZmZmZmRtqmBmcNM04hWh+vbuxHe+2Sc/T6N5jeaTRaoAhuenw7R8cpthMFdZdWyhRsrcrRTPTqhDYQBbPPA1jU3nh4hN/4QJwolURBCX+Fr+UcW4WMS0LJ1IUFR6ST0FTJCYrecGLFPEUFMIeTkh+0DlxDgwLrLBGxzPgWGIEN51u/FzvZH/RSac41+e31FMhShfg+lXzynKaktghQg81fWyfWlTHFGh6qeCGomi6SJ8x/iN02/oS9vtC1YCuo7FFvkWqkGBFxCYiFKWfCM3/CP4sEXRECBvec3hDY5wQR0IrEepRwcEJVyTJthGhVulHuf6aRoNAhDepzoxwfVCk4SsjjHN94JhmFmAEnGD629z32SQnoO1Irl+epeARFKHBLCViOmQQ7FGUiEBeCMMk/iEOshCiu8Id8mgvQRHq2oEyZGHq4W313OoljZEabWlFdZleMHGvm6Oyqhx4fgASpMSpPiiUHAAAAABJRU5ErkJggg=="><br>
+        <span class="translate waiting-for-connect" >Ожидание синхронизации с сервером.</span>
+    </div>
+</div>
+<div id="lost-conn">
+    <div id="lost-cap">
+        <img style="margin-bottom:10px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAZCAMAAAD+KQUWAAAA1VBMVEXuAADyAAD4AADxAAD/AAD/AAD/AAD/AADyAADuAAD/AAD/AAD4AAD9AAD/AAD/AAD0AAD/AAD/AAD/AADwAAD/AAD/AAD5AAD/AAD/AAD9AAD/AAD/AAD/AAD/AAD/AADzAAD/AAD/AAD/AAD/AAD/AAD/AAD3AAD/AAD/AAD/AAD/AAD9AAD/AAD/AADyAAD/AAD/AAD/AAD2AAD/AAD/AAD/AAD/AADzAAD/AADvAAD/AAAAAADvAAD6AAD5AADyAAD+AAD7AAD2AAD9AADvAAD/AADDQhTJAAAAPXRSTlP+3rvhWJ4cdd37axm5pwyQ0WF2eegkAbYGTqYFaDY8MdeRGyCFlhS+TGwnHaUEStyAQiXFOJQIWdNA7xAAA3s0NgAAARdJREFUeNp9z4eOwjAQRVG2UETvvffOQiAJYC8tuv//SUtwWFECo0jzMkeyxx5xV61N637w4MXf4jsvnDgVXns+DaTzL/0H7O+VL3dERITd0t2jGjIkQhIt6upBLP+5+S2Cbr6VbLZ23yC3Lr4CQ/gWPmHA6tnnezRdeD+8QtfYz588Due9AwTO74D4oyfVoWHC6qrkvWeOarkYMbXiMXPreo5Dwg4pUnZLHMjpN26AmbVDmbLdsiYYjqvzWF9+1/9d3ae8bWGWLvPaV+3SSyZW++oLCRW1TnPeVKECcuF4DzpCVeOz4aQO9JQPQHadaZ26k7oSBraPJPSFU9Xv6jX2QY6EZzIGhuK5hsB44pnyrqae2Vuf/QHzpK4U33jeTAAAAABJRU5ErkJggg=="><br>
+        <span class="translate connection-error">Утеряна связь с сетью.<br>Демонстрация возобновится после восстановления связи.</span>
+    </div>
+</div>
+<div id="wrapper">
+    <div id="left-side">
+        <canvas id="wheel-canvas"></canvas>
+    </div>
+    <div id="right-side">
+        <!--div>
+            <table id="history-tb">
+                <caption class="translate history">история</caption>
+                <tr class="round"><th class="translate round">тираж</th><td>2156</td><td>2155</td><td>2154</td><td>2153</td><td>2152</td><td>2151</td><td>2150</td><td>2149</td></tr>
+                <tr class="sector"><th class="translate sector">сектор</th><td>13</td><td>0</td><td>2</td><td>8</td><td>33</td><td>9</td><td>9</td><td>21</td></tr>
+            </table>
+        </div-->
+        <div style="margin:0;padding:0">
+            <table id="new-history-tb">
+                <caption class="title">история</caption>
+                <tr class="title"><th>тираж</th><th>№</th></tr>
+                <tr><td>567382</td><td class="h-green">0</td></tr>
+                <tr><td>567381</td><td class="h-black">12</td></tr>
+                <tr><td>567380</td><td class="h-black">3</td></tr>
+                <tr><td>567379</td><td class="h-red">1</td></tr>
+                <tr><td>567378</td><td class="h-black">7</td></tr>
+                <tr><td>567377</td><td class="h-red">14</td></tr>
+                <tr><td>567376</td><td class="h-red">1</td></tr>
+                <tr><td>567375</td><td class="h-black">30</td></tr>
+                <tr><td>567374</td><td class="h-red">22</td></tr>
+                <tr><td>567373</td><td class="h-black">5</td></tr>
+                <tr><td>567372</td><td class="h-green">0</td></tr>
+                <tr><td>567371</td><td class="h-red">12</td></tr>
+                <tr><td>567370</td><td class="h-red">3</td></tr>
+                <tr><td>567369</td><td class="h-red">1</td></tr>
+                <tr><td>567368</td><td class="h-black">7</td></tr>
+                <tr><td>567367</td><td class="h-red">14</td></tr>
+                <tr><td>567366</td><td class="h-black">1</td></tr>
+                <tr><td>567365</td><td class="h-black">30</td></tr>
+                <tr><td>567364</td><td class="h-red">22</td></tr>
+                <tr><td>567363</td><td class="h-black">5</td></tr>
+                <tr><td>567362</td><td class="h-green">0</td></tr>
+                <tr><td>567361</td><td class="h-black">12</td></tr>
+            </table>
+        </div>
+        <div>
+            <table id="stats-tb">
+                <caption class="translate stats-last-120">статистика (посл. 120 тиражей)</caption>
+                <tr class="caption header">
+                    <th class="translate sector">сектор</th>
+                    <th class="translate selected-number">выпал</th><td></td>
+                    <th class="translate sector">сектор</th><th class="translate selected-number">выпал</th><td></td>
+                    <th class="translate sector">сектор</th><th class="translate selected-number">выпал</th></tr>
+                <tr><td>1</td><td>7</td><td></td><td>13</td><td>9</td><td></td><td>25</td><td>1</td></tr>
+                <tr><td>2</td><td>10</td><td></td><td>14</td><td>9</td><td></td><td>26</td><td>6</td></tr>
+                <tr><td>3</td><td>14</td><td></td><td>15</td><td>4</td><td></td><td>27</td><td>7</td></tr>
+                <tr><td>4</td><td>12</td><td></td><td>16</td><td>5</td><td></td><td>28</td><td>14</td></tr>
+                <tr><td>5</td><td>5</td><td></td><td>17</td><td>11</td><td></td><td>29</td><td>6</td></tr>
+                <tr><td>6</td><td>3</td><td></td><td>18</td><td>20</td><td></td><td>30</td><td>9</td></tr>
+                <tr><td>7</td><td>3</td><td></td><td>19</td><td>13</td><td></td><td>31</td><td>3</td></tr>
+                <tr><td>8</td><td>8</td><td></td><td>20</td><td>6</td><td></td><td>32</td><td>1</td></tr>
+                <tr><td>9</td><td>12</td><td></td><td>21</td><td>3</td><td></td><td>33</td><td>16</td></tr>
+                <tr><td>10</td><td>2</td><td></td><td>22</td><td>1</td><td></td><td>34</td><td>9</td></tr>
+                <tr><td>11</td><td>6</td><td></td><td>23</td><td>16</td><td></td><td>35</td><td>7</td></tr>
+                <tr><td>12</td><td>1</td><td></td><td>24</td><td>12</td><td></td><td>36</td><td>4</td></tr>
+                <tr class="caption separator"><td colspan="8"></td></tr>
+                <tr class="caption zero"><td colspan="4">0</td><td colspan="4">2</td></tr>
+            </table>
+        </div>
+        <div>
+            <table id="mstats-tb">
+                <caption class="translate stats-most-50">самые частые/редкие (посл. 50 тиражей)</caption>
+                <tr><th><img class="target" src="img/target.png"></th>
+                    <th colspan="5" class="translate often">частые</th>
+                    <th colspan="5" class="translate rare">редкие</th></tr>
+                <tr class="sector">
+                    <th class="translate sector">сектор</th><td>6</td><td>7</td><td>14</td><td>30</td><td>36</td><td>1</td><td>7</td><td>12</td><td>19</td><td>33</td></tr>
+                <tr class="rate"><th class="translate selected-number">выпал</th><td>25</td><td>20</td><td>17</td><td>17</td><td>15</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+            </table>
+        </div>
+        <div>
+            <table id="koef-tb" nowrap>
+                <caption class="translate coefficients">коэффициенты</caption>
+                <tr>
+                    <th nowrap class="translate color">цвет</th>
+                    <td id="red" colspan="4"><span class="mark">2</span></td>
+                    <td id="black" colspan="4"><span class="mark">2</span></td>
+                    <td id="green" colspan="4"><span class="mark">36</span></td>
+                </tr>
+                <tr>
+                    <th nowrap class="translate dozens">дюжины</th>
+                    <td colspan="4">1-12 <span class="mark">3</span></td>
+                    <td colspan="4">13-24 <span class="mark">3</span></td>
+                    <td colspan="4">25-36 <span class="mark">3</span></td>
+                </tr>
+                <tr>
+                    <th nowrap class="translate odd-even">чет/нечет</th>
+                    <td colspan="6" ><span class="translate even">чет</span> <span class="mark">2</span></td>
+                    <td colspan="6" ><span class="translate odd">нечет</span> <span class="mark">2</span></td>
+                </tr>
+                <tr>
+                    <th nowrap class="translate number">номер</th>
+                    <td colspan="12"><span class="translate exact-number">точный номер</span> <span class="mark">36</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <script src="js/wheel.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/production.js"></script>
+</div>
+<div id="round"><span class="translate round">тираж</span> <span class="value">2157</span></div>
+<div id="step"><span class="translate betting">приём ставок</span><span class="disact translate playing">розыгрыш</span></div>
+</body>
+</html>
